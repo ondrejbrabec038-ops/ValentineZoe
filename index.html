@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal</title>
+    <style>
+        body { text-align: center; background-color: #f9f9f9; font-family: Arial, sans-serif; }
+        h1 { color: #ff4b5c; }
+        .frog-capybara {
+            width: 300px;
+            height: auto;
+        }
+        .no-button {
+            background-color: #ddd;
+            color: #666;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        .yes-button {
+            background-color: #ffb6c1;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #celebration {
+            display: none;
+            font-size: 24px;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine, baby?</h1>
+    <img class="frog-capybara" src="https://media.giphy.com/media/YH9ZwG8yRZKIC/giphy.gif" alt="Capybara and Frog Dancing">
+    <p>
+        <button class="no-button" disabled>No</button>
+        <button class="yes-button" onclick="showCelebration()">Yes</button>
+    </p>
+    <div id="celebration">🎉 Yay! You said yes! Love you to the moon and back! 🌙❤️</div>
+    <script>
+        function showCelebration() {
+            document.getElementById('celebration').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
