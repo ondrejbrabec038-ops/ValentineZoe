@@ -3,82 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Proposal</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #ffe6e6;
-            overflow: hidden;
-        }
-        h1 {
-            font-family: 'Arial', sans-serif;
-            margin-bottom: 20px;
-        }
-        #noButton {
-            padding: 10px 20px;
-            font-size: 20px;
-            background-color: #ff4d4d;
-            border: none;
-            cursor: default;
-            position: relative;
-            transition: all 0.2s ease;
-        }
-        #noButton:hover {
-            transform: translate(10px, -10px);
-        }
-        #yesButton {
-            padding: 10px 20px;
-            font-size: 20px;
-            background-color: #4dff4d;
-            border: none;
-            cursor: pointer;
-        }
-        #celebration {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        @keyframes confetti {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100vh); }
-        }
-        .confetti { 
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #ff4081;
-            opacity: 0.8;
-            animation: confetti 1.5s forwards;
-        }
-    </style>
+    <title>Valentine Zoe</title>
 </head>
 <body>
-    <h1>Will you be my Valentine?</h1>
-    <button id="noButton">No</button>
-    <button id="yesButton">Yes</button>
-    <img id="beggyCapybara" src="https://media.giphy.com/media/3o7btPWsdtRUeifHF2/giphy.gif" alt="Beggy-eyed Capybara" width="300">
-    <div id="celebration">
-        <img src="https://media.giphy.com/media/11s7Ke7jcNxOcc/giphy.gif" alt="Dancing Capybara" width="300">
-        <img src="https://media.giphy.com/media/26tPCmbLfYX8VqudG/giphy.gif" alt="Frog Celebration" width="300">
-    </div>
-
-    <script>
-        document.getElementById('yesButton').onclick = function() {
-            document.getElementById('celebration').style.display = 'block';
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-                document.body.appendChild(confetti);
-            }
-        };
-    </script>
+    <h1>Welcome to Valentine Zoe!</h1>
+    <img src="https://media.giphy.com/media/xUPGcqK5iU5xmH8u3m/giphy.gif" alt="Valentines Day GIF">
+    <img src="https://media.giphy.com/media/3o7buifPzDgY0iEEiI/giphy.gif" alt="Lovely GIF">
+    <img src="https://media.giphy.com/media/l0ErOeGzFJLIuP9Ma/giphy.gif" alt="Sweetheart GIF">
 </body>
 </html>
