@@ -5,50 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Proposal</title>
     <style>
-        body { text-align: center; background-color: #f9f9f9; font-family: Arial, sans-serif; }
-        h1 { color: #ff4b5c; }
-        .frog-capybara {
-            width: 300px;
-            height: auto;
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            overflow: hidden;
         }
-        .no-button {
-            background-color: #ddd;
-            color: #666;
-            border: none;
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: not-allowed;
-            opacity: 0.6;
+        h1 {
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 20px;
         }
-        .yes-button {
-            background-color: #ffb6c1;
-            color: #fff;
+        #noButton {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #ff4d4d;
             border: none;
-            padding: 15px 30px;
-            font-size: 16px;
+            cursor: default;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        #noButton:hover {
+            transform: translate(10px, -10px);
+        }
+        #yesButton {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #4dff4d;
+            border: none;
             cursor: pointer;
         }
         #celebration {
             display: none;
-            font-size: 24px;
-            color: green;
-            margin-top: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes confetti {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100vh); }
+        }
+        .confetti { 
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4081;
+            opacity: 0.8;
+            animation: confetti 1.5s forwards;
         }
     </style>
 </head>
 <body>
-    <h1>Will you be my Valentine, baby?</h1>
-    <img class="frog-capybara" src="https://media.giphy.com/media/YH9ZwG8yRZKIC/giphy.gif" alt="Capybara and Frog Dancing">
-    <p>
-        <button class="no-button" disabled>No</button>
-        <button class="yes-button" onclick="showCelebration()">Yes</button>
-    </p>
-    <div id="celebration">🎉 Yay! You said yes! Love you to the moon and back! 🌙❤️</div>
+    <h1>Will you be my Valentine?</h1>
+    <button id="noButton">No</button>
+    <button id="yesButton">Yes</button>
+    <img id="beggyCapybara" src="https://media.giphy.com/media/3o7btPWsdtRUeifHF2/giphy.gif" alt="Beggy-eyed Capybara" width="300">
+    <div id="celebration">
+        <img src="https://media.giphy.com/media/11s7Ke7jcNxOcc/giphy.gif" alt="Dancing Capybara" width="300">
+        <img src="https://media.giphy.com/media/26tPCmbLfYX8VqudG/giphy.gif" alt="Frog Celebration" width="300">
+    </div>
+
     <script>
-        function showCelebration() {
+        document.getElementById('yesButton').onclick = function() {
             document.getElementById('celebration').style.display = 'block';
-        }
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(confetti);
+            }
+        };
     </script>
 </body>
 </html>
