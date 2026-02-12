@@ -3,12 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine Zoe</title>
+    <title>Valentine's Proposal</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        #proposal { font-size: 24px; margin-bottom: 20px; }
+        button { padding: 10px 20px; font-size: 18px; cursor: pointer; }
+        #noButton { display: inline-block; }
+        #noButton:hover { position: relative; animation: jump 0.3s; }
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        #confetti { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Valentine Zoe!</h1>
-    <img src="https://media.giphy.com/media/xUPGcqK5iU5xmH8u3m/giphy.gif" alt="Valentines Day GIF">
-    <img src="https://media.giphy.com/media/3o7buifPzDgY0iEEiI/giphy.gif" alt="Lovely GIF">
-    <img src="https://media.giphy.com/media/l0ErOeGzFJLIuP9Ma/giphy.gif" alt="Sweetheart GIF">
+
+<div id="proposal">Will you be my Valentine, baby?</div>
+<button id="noButton" onclick="return false;">No</button>
+<button id="yesButton">Yes</button>
+<div id="confetti"></div>
+
+<script>
+    document.getElementById('yesButton').addEventListener('click', function() {
+        const confetti = document.getElementById('confetti');
+        confetti.style.display = 'block';
+
+        // Add capybara and frog GIF celebration
+        const capybaraGIF = document.createElement('img');
+        const frogGIF = document.createElement('img');
+        capybaraGIF.src = 'https://example.com/capybara.gif'; // Replace with actual capybara GIF URL
+        frogGIF.src = 'https://example.com/frog.gif'; // Replace with actual frog GIF URL
+        document.body.appendChild(capybaraGIF);
+        document.body.appendChild(frogGIF);
+
+        // Simple confetti animation logic
+        for (let i = 0; i < 100; i++) {
+            const confettiPiece = document.createElement('div');
+            confettiPiece.className = 'confetti';
+            confettiPiece.style.position = 'absolute';
+            confettiPiece.style.width = '10px';
+            confettiPiece.style.height = '10px';
+            confettiPiece.style.backgroundColor = 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
+            confettiPiece.style.left = Math.random() * window.innerWidth + 'px';
+            confettiPiece.style.animation = `fall 1.5s forwards ${Math.random() * 2}s`;
+            confetti.appendChild(confettiPiece);
+        }
+    });
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes fall {
+            to { transform: translateY(${window.innerHeight}px); }
+        }
+        .confetti { opacity: 1; }
+    `;
+    document.head.appendChild(style);
+</script>
+
 </body>
 </html>
